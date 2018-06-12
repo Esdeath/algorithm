@@ -31,6 +31,8 @@ int add_number(int x ,int y);
 // 4.https://github.com/julycoding/The-Art-Of-Programming-By-July/tree/master/ebook/zh july
 vector<int> twoSum(vector<int>& nums, int target);
 vector<int> twoSum2(vector<int>& nums, int target);
+
+//3.判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
 bool isPalindrome(int x) ;
 
 
