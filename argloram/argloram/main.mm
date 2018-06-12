@@ -10,6 +10,8 @@
 #include <vector>
 #include <iostream>
 #include <unordered_map>
+#include <deque>
+#include <stack>
 using namespace std;
 //1.计算两个数的和
 int add_number(int x ,int y);
@@ -22,16 +24,32 @@ int add_number(int x ,int y);
     因为 nums[0] + nums[1] = 2 + 7 = 9
     所以返回 [0, 1]
  **/
+
+// 1.https://blog.csdn.net/BillCYJ/article/details/78985895 map和unorder_map之间的区别
+// 2.https://blog.csdn.net/duan19920101/article/details/51579136 哈希表
+// 3.https://blog.csdn.net/chenhuajie123/article/details/11951777 红黑树
+// 4.https://github.com/julycoding/The-Art-Of-Programming-By-July/tree/master/ebook/zh july
 vector<int> twoSum(vector<int>& nums, int target);
 vector<int> twoSum2(vector<int>& nums, int target);
+bool isPalindrome(int x) ;
+
 
 int main()
 {
     std::cout << "Hello world!" << std::endl;
     
     
-    vector<int> anum = {2,5,7,9,0,1,8};
-    twoSum2(anum, 9);
+   // vector<int> anum = {2,5,7,9,0,1,8};
+   // twoSum2(anum, 9);
+    int num = 10011;
+    bool isPal =     isPalindrome(num);
+    
+    if (isPal) {
+        std::cout <<"是回文数" <<std::endl;
+    } else {
+        std::cout <<"不是回文数" <<std::endl;
+    }
+    
     return 0;
 }
 
@@ -74,4 +92,31 @@ vector<int> twoSum2(vector<int> &numbers, int target) {
     return result;
 }
 
+
+bool isPalindrome(int x) {
+    
+    if (x < 0)
+        return false;
+    
+    vector<int> vec;
+    
+    
+    do {
+        int y = x%10;
+        
+        vec.push_back(y);
+        x = x/10;
+    } while (x > 0);
+    
+
+    
+    for (int i = 0; i < vec.size()*0.5; i++ ) {
+        if (vec[i] != vec[vec.size() - (i+1)]) {
+            return false;
+        }
+    }
+    
+    
+    return true;
+}
 //1.
